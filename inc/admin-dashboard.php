@@ -5,6 +5,7 @@
  * since 2.0
  * author: cathy Tibbles
  * add thumbs to post lists
+ * add cpt to 'activity' widget on dashboard
  *
 */
 
@@ -36,3 +37,22 @@ function fc_show_post_thumbnail_column($fc_columns, $fc_id){
 	}
 }
 
+// add custom post type to the 'activity' widget on dashboard
+// since 2.0
+// bug: doesn't display default status - only published, need to add scheduled, draft, private
+
+if ( is_admin() ) {
+	add_filter( 'dashboard_recent_posts_query_args', 'wpb_add_cpt_dashboard_activity' );
+	function wpb_add_cpt_dashboard_activity( $query ) {
+		
+		$post_types = get_post_types();
+		$post_types = ['post', 'evergreen_posts'];
+		if ( is_array( $query['post_type'] ) ) {
+			$query['post_type'] = $post_types;
+		} else {
+			$temp = $post_types;
+			$query['post_type'] = $temp;
+		}
+		return $query;
+	}
+}
