@@ -15,5 +15,6 @@ require_once( EA_DIR . '/inc/wordpress-cleanup.php' );
 require_once( EA_DIR . '/inc/cpt-evergreen-posts.php' );
 require_once( EA_DIR . '/inc/sample-shortcode.php' );
 require_once( EA_DIR . '/inc/cust-tax-posts.php' );
+require_once( EA_DIR . '/inc/admin-dashboard.php' );
 
 
