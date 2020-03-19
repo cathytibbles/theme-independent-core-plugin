@@ -4,6 +4,9 @@
  *
  * @package      Theme Independent Core Plugin
  * @author       Bill Erickson, WPBarista
+ * default image link
+ * remove old custom field boxes
+ * remove shortcodes
  * 
 **/
 
@@ -42,3 +45,6 @@ function jb_remove_post_custom_fields_now() {
 	}
 }
 add_action( 'admin_menu' , 'jb_remove_post_custom_fields_now' );
+
+// Code to remove unused shortcodes from WordPress site
+add_shortcode( 'Tweet', '__return_false' );
